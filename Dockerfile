@@ -1,4 +1,4 @@
-FROM pytorch/pytorch:1.11.0-cuda11.3-cudnn8-devel
+FROM pytorch/pytorch:1.10.0-cuda11.3-cudnn8-devel
 
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A4B469963BF863CC
 RUN apt -y update && apt -y install git vim less python3-pip
@@ -21,10 +21,11 @@ RUN pip3 install numpy==1.19.2 \
     kornia==0.6
 RUN pip3 install -e git+https://github.com/CompVis/taming-transformers.git@master#egg=taming-transformers
 RUN pip3 install -e git+https://github.com/openai/CLIP.git@main#egg=clip
+RUN apt install -y apt libsm6 libxext6 libxrender-dev
 
-COPY ./ /work
-WORKDIR /work
+#COPY ./ /app
+WORKDIR /app
 RUN pip3 install -e .
 
 # And,
-# docker run --rm -it -v c:/obara/stable-diffusion:/work dream /bin/bash
+# docker run --rm -it -v $HOME/stable-diffusion:/app dream /bin/bash

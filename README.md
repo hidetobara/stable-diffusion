@@ -1,3 +1,13 @@
+# Quick Start
+First, Go to HuggingFace Site and download ckpt (for example, sd-v1-4.ckpt) to caches folder.
+```
+$ docker build -t dream .
+$ docker run --rm -it -v $HOME/stable-diffusion:/app dream /bin/bash
+
+# python3 scripts/txt2img.py --ckpt caches/sd-v1-4.ckpt --H 256 --W 256 --prompt "A cat is sleeping"
+```
+Enjoy !
+
 # Stable Diffusion
 *Stable Diffusion was made possible thanks to a collaboration with [Stability AI](https://stability.ai/) and [Runway](https://runwayml.com/) and builds upon our previous work:*
 
