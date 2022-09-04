@@ -23,7 +23,7 @@ RUN pip3 install -e git+https://github.com/CompVis/taming-transformers.git@maste
 RUN pip3 install -e git+https://github.com/openai/CLIP.git@main#egg=clip
 RUN apt install -y apt libsm6 libxext6 libxrender-dev
 
-#COPY ./ /app
+COPY ./ /app
 WORKDIR /app
 RUN pip3 install -e .
 

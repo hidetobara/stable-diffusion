@@ -1,5 +1,7 @@
 private/
 caches/
 outputs/
+samples/
+__pycache__
 
 *.log
