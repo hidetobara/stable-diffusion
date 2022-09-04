@@ -152,7 +152,7 @@ def main():
     parser.add_argument(
         "--n_iter",
         type=int,
-        default=2,
+        default=1,
         help="sample this often",
     )
     parser.add_argument(
@@ -182,7 +182,7 @@ def main():
     parser.add_argument(
         "--n_samples",
         type=int,
-        default=2,
+        default=1,
         help="how many samples to produce for each given prompt. A.k.a. batch size",
     )
     parser.add_argument(
@@ -240,7 +240,8 @@ def main():
     config = OmegaConf.load(f"{opt.config}")
     model = load_model_from_config(config, f"{opt.ckpt}")
 
-    device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+    #device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+    device = torch.device("cpu")
     model = model.to(device)
 
     if opt.plms:
@@ -280,7 +281,7 @@ def main():
 
     precision_scope = autocast if opt.precision=="autocast" else nullcontext
     with torch.no_grad():
-        with precision_scope("cuda"):
+        #with precision_scope("cuda"):
             with model.ema_scope():
                 tic = time.time()
                 all_samples = list()
