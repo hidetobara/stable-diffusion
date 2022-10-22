@@ -4,7 +4,8 @@ First, Go to HuggingFace Site and download ckpt (for example, sd-v1-4.ckpt) to c
 $ docker build -t dream .
 $ docker run --rm -it -v $HOME/stable-diffusion:/app dream /bin/bash
 
-# python3 scripts/txt2img.py --ckpt caches/sd-v1-4.ckpt --H 256 --W 256 --prompt "A cat is sleeping, renoir, oil painting"
+# python3 scripts/txt2img.py --ckpt downloads/sd-v1-4.ckpt --H 256 --W 256 --prompt "A cat is sleeping, renoir, oil painting"
+# python3 scripts/img2img.py --prompt "A pretty cat is sleeping" --init-img downloads/miku.jpg --strength 0.8 --ckpt downloads/sd-v1-4.ckpt
 ```
 Enjoy !
 
